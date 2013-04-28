@@ -1,0 +1,120 @@
+每次縮排都是以四個空白做縮排，且不能使用 Tab 做縮排
+單行不能超過 120 個字
+
+命名規則：
+變數跟 function 都是首字小寫
+然後下個單字開頭為大寫
+ex. $counter, connect(), getData(), buildSomeWidget()
+
+class 跟全域的 funciotn 以及全域變數都是以首字大寫且以底線分隔單字
+ex.
+XML_RPC_serializeData(), Net_Finger
+
+php 的控制結構:
+這就是指 if-elseif-else,for, while, switch 這種語法
+如果是 if-else 這種結構
+條件判斷前後不用空白，但是 if 後要空白一個才能放左括號
+如果有用到 elseif 和 else 必須跟在前者 if 的大括號之後
+ex.
+<?php
+if ((condition1) || (condition2)) {
+    action1;
+} elseif ((condition3) && (condition4)) {
+    action2;
+} else {
+    defaultaction;
+}
+?>
+
+如果是 switch ，case 不需要縮 4 個空白
+ex.
+<?php
+switch (condition) {
+case 1:
+    action1;
+    break;
+
+case 2:
+    action2;
+    break;
+
+default:
+    defaultaction;
+    break;
+}
+?>
+
+如果單行條件太長，請換行並對齊上一個條件
+ex.
+<?php
+
+if (($condition1
+    || $condition2)
+    && $condition3
+    && $condition4
+) {
+    //code here
+}
+?>
+
+又或者可以
+ex.
+<?php
+
+if ($condition1 ||
+    $condition2 ||
+    $condition3 ) {
+    //code here
+}
+?>
+
+如果要用到三元運算 xxx ? xxx : xxx; 這種格式
+遇到太長就一一拆開
+ex.
+<?php
+
+$a = $condition1 && $condition2
+    ? $foo : $bar;
+
+$b = $condition3 && $condition4
+    ? $foo_man_this_is_too_long_what_should_i_do
+    : $bar;
+?>
+
+宣告 class 跟 function：
+宣告 class 首字為大寫
+function 為小寫
+但兩者的大括號都要換行
+ex.
+<?php
+class Foo_Bar
+{
+
+    //... code goes here
+
+}
+?>
+
+ex.
+<?php
+function fooFunction($arg1, $arg2 = '')
+{
+    if (condition) {
+        statement;
+    }
+
+    return $val;
+}
+?>
+
+宣告 array：
+ex.
+<?php
+
+$some_array = array(
+    'foo'  => 'bar',
+    'spam' => 'ham',
+);
+?>
+
+

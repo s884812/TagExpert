@@ -4,15 +4,21 @@ class Topic
     private $db;
     public function __construct() 
     {
-        require_once('database.php');
-        $this->db = $db;
+        // require_once('database.php');
+        $this->db = new Database();
     }
     
-    function getTopic()
+    public function getTopic()
     {
-        $query_str = 'select * from posting_profile order by hit limit 1';
+        $query_str = 'select * from posting_profile order by hit limit 20';
         $result = $this->db->query($query_str);
-        return $this->db->fetch_array($result);
+        $topic = array();
+        while ($row = $this->db->fetch_array($result)) {
+            array_push($topic, $row);
+        }
+
+        
+        return $topic;
     }
 
     public function addTopic($user_id, $title, $content)
@@ -28,7 +34,5 @@ class Topic
     }
 }
 
-$topic = new Topic();
-$topic->addTopic(1, 'hello', 'fuck');
 ?>
 

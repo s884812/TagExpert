@@ -5,12 +5,11 @@ function is_exist() {
     count=`ls -l $1 2> /dev/null | wc -l`
 }
 webroot='/var/www/html';
-whitedir=()
+whitedir=('templates/')
 
-if [ ${#white} -gt 0 ]
+if [ ${#whitedir} -gt 0 ]
 then
-    echo fuck;
-    cp ${white[*]} $webroot
+    cp -r ${whitedir[*]} $webroot
 fi
 
 is_exist '*.php'

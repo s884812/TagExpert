@@ -1,0 +1,95 @@
+我決定採用 trello 這個網站 app 來作為我們專題的專案管理工具
+網址為 https://trello.com/
+
+使用 google 帳號即可登入，如果是第一次他還會問你是否要創建 trello 帳戶，選擇是就行了
+
+-------------------------------------------------------------------------------
+Trello 的基本分類
+當中 Board 就是指板子，可以為專案開啟一個版面
+裡面的 List 就是指專案裡面的清單，我們專案目前開了三個清單
+1.要做的事
+2.正在進行
+3.已經完成
+
+我目前只有想出這三種狀態
+而 Trello 是以 Card 代表每個任務，所以 List 中的 Add Card
+意思就是在這個 List 下新增一個任務，以後我會以他的用法 Card 代指任務
+按完 Enter 就會直接新增一個 Card 所以沒有把字打完就案 Enter 要小心
+
+-------------------------------------------------------------------------------
+Card 內的各個功能，點取 Card 後可以看到詳細的內容與功能
+
+Edit Card Description 就是編輯關於這卡片的描述
+
+Label 就是他的標籤吧，可以把 Card 貼上顏色
+其中我已經把幾個顏色取上名字
+紅色：緊急（我應該會把有時間限制的貼上紅色）
+藍色：重要
+
+Assign 指派：這應該只有管理員看得到，就是把 Card 指派給哪些成員去做
+拖拉成員貼到該 Card 也有同樣效果
+
+Add Checklist 增加檢查清單，這個可以新增一個清單讓人打勾勾
+一旦新增 會有 Add Item 可以讓你新增要檢查的項目
+一旦打勾勾 他會顯示完成度的百分比
+
+Due Date 就是增加 dead line 的意思
+
+Attach File 可以上傳檔案，如果我們專案有把一些小東西完成的話，可以把檔案上傳上來
+
+Move 就是移動 Card 到別的 List ，拖拉 Card 也可以移動到別的 List
+這樣就可以做狀態的轉換了
+
+Subscribe 是訂閱這個 Card ，通常被指派的都會自動訂閱，一旦該 Card 有什麼動靜就會被通知
+
+Vote 投票
+
+Archive 歸檔，點了這個，該 Card 就會從 List 消失（所以別亂點，有點像是刪除）
+必須在右邊的 Option 中找到 Archived Card 才看得到
+
+Comment 就是針對該 Card 發表評論，也就是留言，請勿留不相關的 Comment
+
+Activity 是指做了哪些動作
+
+-------------------------------------------------------------------------------
+右上方的控制欄
+Notification 是指通知，那通常你訂閱的 Card 被做了某些動作就會收到通知
+
+Board 就是可以控制你個人的 Board ，
+裡面有 See all Board 看你所有的 Board
+New Board 新增一個 Board
+View Cosed Board 查看你關閉的 Board
+
+點擊自己的大頭貼可以做個人的設定，簡單介紹幾個尚未翻譯的功能
+Profile 個人資料
+New Organization 可以新增一個組織，像是公司、工作室、或者像我們這樣可以新增組織，然後共同設定板子
+Account Setting 設定帳號
+（如果是用 Google 帳號連接的話，裡面所有的內容都是用預設值，請記得修改）
+裡面有
+Change Name, Initials, or Bio 是更改名字、縮寫、跟自我介紹
+Change Email Address 改你 Email 信箱
+Change Avatar 更改大頭貼，Avatar 就是阿凡達的英文，因為 Avatar 就是自己的替身嘛
+Change Password 更改密碼
+Change Notificataion Email Frequency 更改 Email  發送通知的頻率
+
+--------------------------------------------------------------------------------
+右邊有一排的控制欄位，那可以點板子的右側縮掉這些欄位
+稍微簡介一下這些
+Member 就是指成員，拖拉成員的大頭到卡片上就能指派成員任務
+Add Member 就能新增成員進來共同使用 Board
+
+Board 這裡就是針對 Board 的控制欄位了
+Option 就是選項了 
+裡頭有
+Setting 設定
+Member 可以尋找成員
+Archived Items 可以在這看已經歸檔的卡片，也只有已經歸檔的卡片可以在這裡進行真正的刪除
+Label 可以看目前有哪些標籤，並且為標籤取名
+
+Add List 新增可以容納卡片的 List ，一開始開 Board 的時候會有預設的三個List 分別是 To Do, Doing, Done
+我一開始就把這三個 List 給 Archive 掉
+利用 Add List 新增三個中文的 List
+
+-------------------------------------------------------------------------------
+Trello 也可以新增到 Chrome 瀏覽器內
+https://chrome.google.com/webstore/detail/trello/oflhioojkbelepjlnafgmgkkjhojphcg?utm_source=chrome-ntp-icon
