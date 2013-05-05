@@ -1,4 +1,5 @@
 <html>
+<a href="/index.php?act=edit"> edit </a>
 <?php
     foreach($this->tplVar as $row) {
         echo 'title: ' . $row['title'] . "<br />\n";

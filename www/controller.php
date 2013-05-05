@@ -21,5 +21,17 @@ class Controller
         $output->setTplVar($topic->getTopic());
         $output->render('index.tpl.php');
     }
+
+    private function edit()
+    {
+        $output = new Output();
+        $output->render('edit.tpl.php');
+    }
+
+    private function add()
+    {
+        $topic = new Topic();
+        
+    }
 }
 ?>
