@@ -31,7 +31,11 @@ class Controller
     private function add()
     {
         $topic = new Topic();
-        
+        if ($topic->addTopic(1, $_POST['title'], $_POST['content'])) {
+            echo 'success';
+        } else {
+            echo 'fail';
+        }
     }
 }
 ?>

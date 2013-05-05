@@ -24,7 +24,7 @@ class Topic
     public function addTopic($user_id, $title, $content)
     {
         $query_str = 'insert into posting_profile (parent_posting_id, user_id, title, content, hit, post_date, last_modify_date)
-                                  value (null, ' . $user_id . ', ' . $title . ', ' . $content . ', 1, now(), now())';
+                                  value (null, "' . $user_id . '", "' . $title . '", "' . $content . '", 1, now(), now())';
         return $this->db->query($query_str);
     }
 
