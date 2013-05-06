@@ -12,11 +12,7 @@ class Topic
     {
         $query_str = 'select * from posting_profile order by hit limit 20';
         $result = $this->db->query($query_str);
-        $topic = array();
-        while ($row = $this->db->fetch_array($result)) {
-            array_push($topic, $row);
-        }
-
+        $topic = $this->db->fetch_array($result);
         
         return $topic;
     }

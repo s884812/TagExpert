@@ -13,12 +13,18 @@ class Database
 
     public function query($query)
     {
+        
         return mysql_query($query);
     }
 
     public function fetch_array($result)
     {
-        return mysql_fetch_array($result);
+        $retVal = array();
+        while ($row = mysql_fetch_array($result)) {
+            array_push($retVal, $row);
+        }
+
+        return $retVal;
     }
 
     public function __destruct()
