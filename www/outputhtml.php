@@ -1,25 +1,18 @@
 <?php
-class Output
+class OutputHtml extends View
 {
     private $dir;
-    private $tplVar;
     public function  __construct()
     {
         $this->dir = 'templates/';
     }
 
-    public function setTplVar($tplVar)
-    {
-        $this->tplVar = $tplVar;
-    }
-
-
     public function render($tplFile)
     {
-        echo $this->fetchHtml($tplFile);
+        echo $this->fetch($tplFile);
     }
 
-    private function fetchHtml($tplFile)
+    protected function fetch($tplFile)
     {
         ob_start();
         require_once($this->dir . $tplFile);
@@ -27,6 +20,5 @@ class Output
         ob_end_clean();
         return $html;
     }
-
 }
 ?>

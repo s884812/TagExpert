@@ -1,5 +1,5 @@
 <?php
-abstract class Controller {
+abstract class Control {
     protected $act;
     abstract protected function index();
 

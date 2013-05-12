@@ -4,11 +4,11 @@ class Database
     private $link;
     public function __construct()
     {
-        require_once('config.php');
+        require('config.php');
         $this->link = mysql_connect($config['db']['host'], 
-                              $config['db']['user'],
-                              $config['db']['password']);
-        mysql_select_db('TagExpert', $this->link);
+                                    $config['db']['user'],
+                                    $config['db']['password']);
+        mysql_select_db($config['db']['dbName'], $this->link);
     }
 
     public function query($query)
@@ -27,11 +27,18 @@ class Database
         return $retVal;
     }
 
-    public function __destruct()
+    public function getLastID()
     {
-        mysql_close($this->link);
+        if ($result = $this->query('select last_insert_id()')) {
+            $id = $this->fetch_array($result);
+            $id = array_pop($id);
+        } else {
+            echo "error";
+        }
+        return $id;
     }
-}
 
+
+}
 ?>
         

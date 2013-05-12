@@ -1,5 +1,5 @@
 <?php
-class Action extends Controller
+class Action extends Control
 {
     private $user_id;
     public function __construct()
@@ -12,14 +12,14 @@ class Action extends Controller
     protected function index()
     {
         $topic = new Topic();
-        $output = new Output();
+        $output = new OutputHtml();
         $output->setTplVar($topic->getTopic());
         $output->render('index.tpl.php');
     }
 
     protected function edit()
     {
-        $output = new Output();
+        $output = new OutputHtml();
         if (isset($_SESSION['user_id'])) {
             $output->render('edit.tpl.php');
         } else {
@@ -31,12 +31,12 @@ class Action extends Controller
     protected function add()
     {
         $topic = new Topic();
-        
+        $tag_array = Tag::convertToTagArray($_POST['tag']);
         if (isset($_SESSION['user_id'])) {
-            if ($topic->addTopic($_SESSION['user_id'], $_POST['title'], $_POST['content']))
-                header('Location: index.php');
+            if ($topic->addTopic($_SESSION['user_id'], $_POST['title'], $_POST['content'], $tag_array))
+                $this->redirectTo('index.php');
             else
-                header('Locateion: index.php?act=edit');
+                $this->redirectTo('index.php?act=edit');
         } else {
             echo 'please login <br />\n';
         }
@@ -48,9 +48,9 @@ class Action extends Controller
         {
             $acct = new Account();
             if($acct->login($_POST['account'], $_POST['password']))
-                header('Refresh: 1; url=/index.php');
+                $this->redirectTo('index.php');
         } else {
-            $output = new Output();
+            $output = new OutputHtml();
             $output->render('login.tpl.php');
         }
     }
