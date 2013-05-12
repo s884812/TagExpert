@@ -1,73 +1,22 @@
 <?php
+abstract class Controller {
+    protected $act;
+    abstract protected function index();
 
-class Controller
-{
-    private $act;
-    private $user_id;
-    public function __construct()
-    {
-        $this->act = isset($_GET['act'])
-                     ? strtolower($_GET['act'])
-                     : 'index';
-    }
-
-    public function run()
+    final public function run() 
     {
         $this->{$this->act}();
     }
 
-    private function index()
+    protected function redirectTo($url)
     {
-        $topic = new Topic();
-        $output = new Output();
-        $output->setTplVar($topic->getTopic());
-        $output->render('index.tpl.php');
+        header('Location: ' . $url);
     }
 
-    private function edit()
+    protected function refreshTo($time, $url)
     {
-        $output = new Output();
-        if (isset($_SESSION['user_id'])) {
-            $output->render('edit.tpl.php');
-        } else {
-            header("Refresh: 1; url=/index.php?act=login");
-            echo 'please log in <br />' . "\n";
-        }
+        header('Refresh: ' . sprintf("%d", $time) . '; url=' . $url);
     }
-
-    private function add()
-    {
-        $topic = new Topic();
-        
-        if (isset($_SESSION['user_id'])) {
-            if ($topic->addTopic($_SESSION['user_id'], $_POST['title'], $_POST['content']))
-                header('Location: index.php');
-            else
-                header('Locateion: index.php?act=edit');
-        } else {
-            echo 'please login <br />\n';
-        }
-    }
-    
-    private function login()
-    {
-        if (isset($_POST['account']) or isset($_POST['password']))
-        {
-            $acct = new Account();
-            if($acct->login($_POST['account'], $_POST['password']))
-                header('Refresh: 1; url=/index.php');
-        } else {
-            $output = new Output();
-            $output->render('login.tpl.php');
-        }
-    }
-
-    private function logout()
-    {
-        $acct = new Account();
-        $acct->logout();
-        header('Location: index.php');
-    }
-
 }
 ?>
+    

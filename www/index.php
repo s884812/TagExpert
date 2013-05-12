@@ -5,7 +5,7 @@
         require_once(strtolower($class) . '.php');
     }
 
-    $ctrler = new Controller();
-    $ctrler->run();
+    $action = new Action();
+    $action->run();
 ?>
 
