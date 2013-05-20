@@ -3,14 +3,13 @@ class Account {
     private $db;
     public function __construct()
     {
-        //session_start();
         $this->db = new Database();
     }
 
     public function login($account, $password)
     {
         $result = $this->db->query('select * from user_profile where email = "' . 
-                                    $account . '" and password = sha2(256, "' . $password . '")' );
+                                    $account . '" and password = md5("' . $password . '")' );
         $result = $this->db->fetch_array($result);
         if ($result) {
             $user = array_pop($result);
@@ -30,6 +29,14 @@ class Account {
     {
         session_unset();
         session_destroy();
+    }
+
+    public function getEncryptPwd($account)
+    {
+        $pwd = $this->db->query('select password from user_profile where email="' . $account . '"');
+        $pwd = array_pop($this->db->fetch_array($pwd));
+        $pwd = $pwd['password'];
+        return $pwd;
     }
 }
 ?>

@@ -62,5 +62,19 @@ class Action extends Control
         header('Location: index.php');
     }
 
+    protected function getEncryptPwd()
+    {
+        if (isset($_GET['account'])) {
+            $acct = new Account();
+            $output = new OutputJson();
+            $pwd['password'] = $acct->getEncryptPwd($_GET['account']);
+            $output->render($pwd);
+            
+        } else {
+             echo 'not set account' . "<br />\n";
+             return null;
+        }
+    }
+
 }
 ?>
