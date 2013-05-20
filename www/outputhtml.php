@@ -15,7 +15,7 @@ class OutputHtml extends View
     protected function fetch($tplFile)
     {
         ob_start();
-        require($this->dir . $tplFile);
+        include($this->dir . $tplFile);
         $html = ob_get_contents();
         ob_end_clean();
         return $html;
