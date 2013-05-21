@@ -10,10 +10,7 @@ require.config({
         'jquery.md5': '/js/lib/jquery.md5'
     },
     shim: {
-        'jquery.md5': {
-            deps: ['jquery'], // 依賴哪個 lib
-            exports: 'md5'    // 取名
-        }
+        'jquery.md5': ['jquery'] // 說明哪個不支援 requirejs 並且指名是依賴哪個套件
     }
 });
 
