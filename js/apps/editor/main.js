@@ -1,8 +1,20 @@
-require({
-    path: {
+require.config({
+    paths: {
         "lib" : "../../lib"
-    }
+    }, 
+    shim: {
+        'showndown': {
+            exports: 'showndown'
+        }
+   }
 });
 
 require([
-    'lib
+    'editor',
+    'lib/showdown',
+    'lib/jquery'
+], function() {
+    console.log(editor);
+    editor.initialize();
+});
+
