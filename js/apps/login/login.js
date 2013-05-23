@@ -7,14 +7,14 @@ var login = new function() {
     var xhr = new XMLHttpRequest();
     var acct;
     var GetEncryptPwd = function() {
-    var url = 'index.php?act=getEncryptPwd&account=' + $('#account').val();
-        xhr.open('GET', url, false);
-        xhr.send();
-        acct = JSON.parse(xhr.responseText);
+        var url = 'index.php?act=getEncryptPwd&account=' + $('#account').val();
+            xhr.open('GET', url, false);
+            xhr.send();
+            acct = JSON.parse(xhr.responseText);
     }
 
     var CheckPwd = function() {
-        if($.md5($('#password').val()) == acct.password) {
+        if($.md5($('#password').val()) == acct['password']) {
             $('#messege').html('密碼輸入正確');
             $('form').submit();
         } else {
