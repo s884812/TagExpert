@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
 <head>
     <script data-main="js/apps/login/main" src="js/lib/require.js"></script>
     <style> @import url(css/bootstrap/bootstrap.css) </style>

@@ -10,7 +10,6 @@ var login = new function() {
         var url = 'index.php?act=getEncryptPwd&account=' + $('#account').val();
             xhr.open('GET', url, false);
             xhr.send();
-			document.write(xhr.responseTeext);
             acct = JSON.parse(xhr.responseText);
     }
 
