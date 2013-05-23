@@ -10,11 +10,12 @@ var login = new function() {
         var url = 'index.php?act=getEncryptPwd&account=' + $('#account').val();
             xhr.open('GET', url, false);
             xhr.send();
+			document.write(xhr.responseTeext);
             acct = JSON.parse(xhr.responseText);
     }
 
     var CheckPwd = function() {
-        if($.md5($('#password').val()) == acct['password']) {
+        if($.md5($('#password').val()) == acct.password) {
             $('#messege').html('密碼輸入正確');
             $('form').submit();
         } else {
