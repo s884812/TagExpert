@@ -42,7 +42,6 @@
             $host = strcmp($_POST['host'], "") ? $_POST['host'] : 'localhost';
             $link = Login($host, $user, $password);
             if ($link) {
-                echo $host;
                 setcookie('root_host', $host);
                 setcookie('root_user', $user);
                 setcookie('root_password', $password);
