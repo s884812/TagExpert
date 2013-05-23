@@ -13,7 +13,7 @@
 <?php
     foreach( $this->tplVar as $row ) {
         echo '                <div>' . "\n";
-        echo '                    <h1>'. $row['title'] . "</h1>\n";
+        echo '                    <h2>'. $row['title'] . "</h1>\n";
         echo '                    <hr/>' . "\n";
         echo '                    <div id="box"" >' .  $row['content'] . '</div><br/>' . "\n";
         echo '                </div>' . "\n";
@@ -23,7 +23,7 @@
                  </div >
             <div class="row-fluid">
                  <div class="span2 offset1" id="control">
-                     <table border="1" class = "table" >
+                     <table class = "table table-striped table-bordered" >
                          <tr>
                              <td>已訂閱標籤列表</td>
                          </tr>
