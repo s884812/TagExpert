@@ -1,5 +1,18 @@
 <?php header('Content-type: text/html; charset=utf-8'); ?>
 <html>
+    <style>@import url(css/bootstrap/bootstrap.css) </style>
+    <style type="text/css"> 
+        form {
+            text-align: center;
+        }
+
+        #user, #password, #host {
+            height: 24px;
+        }
+        h3 {
+            text-align: center;
+        }
+    </style>
 <head>
 </head>
 <body>
@@ -7,21 +20,13 @@
         function PrintLogin($step)
         {
             echo '<form method="post" action="install.php?step=' . $step . '">' . "\n";
-            echo '    <table>';
-            echo '        <tr>';
-            echo '            <td> user: </td> <td><input type="text" name="user"/></td>' . "\n";
-            echo '        </tr>';
-            echo '        <tr>';
-            echo '            <td>password: </td><td><input type="password" name="password" /></td>' . "\n";
-            echo '        </tr>';
-            echo '        <tr>';
-            echo '            <td>host: </td><td><input type="text" name="host"></td>' . "\n";
-            echo '            <td> host 為空則使用預設值 localhost </td>';
-            echo '        </tr>';
-            echo '        <tr>';
-            echo '             <td></td><td><input type="submit"></td>' . "\n";
-            echo '        </tr>';
-            echo '    </table>';
+            echo '    <fieldset>';
+            echo '            <label> user: </label> <input type="text" name="user" placeholder="帳號"/>' . "\n";
+            echo '            <label> password: </label> <input type="password" name="password" placeholder="密碼"/>' . "\n";
+            echo '            <label> host: </label> <input type="text" name="host" placeholder="主機">' . "\n";
+            echo '            <label> host 為空則使用預設值 localhost </label>';
+            echo '            <input type="submit" class="btn btn-primary">' . "\n";
+            echo '    </fieldset>';
             echo '</form>';
         }
 
@@ -140,7 +145,7 @@
         $step = isset($_GET['step']) ? $_GET['step'] : 0;
         switch($step) {
         case 0:
-            echo '請輸入 mysql root 帳號密碼' . "<br />\n";
+            echo '<h3> 請輸入 mysql root 帳號密碼 </h3>' . "<br />\n";
             ReadyToLoginRoot(1);
             break;
         case 1:
@@ -148,7 +153,7 @@
                 header('Refresh:1; url=install.php?step=2');
             break;
         case 2:
-            echo '請為 TagExpert 新增一個帳號';
+            echo '<h3> 請為 TagExpert 新增一個帳號 </h3>';
             GetUser(3);
             break;
         case 3:
