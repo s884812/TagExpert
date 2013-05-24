@@ -18,11 +18,11 @@
     <div class="row-fluid">
         <div class="span12">
              <div class="row-fluid">
-                 <div class="span7 offset2" id="topic">
+                 <div class="span6 offset2" id="topic">
 <?php
     foreach( $this->tplVar as $row ) {
         echo '                <div>' . "\n";
-        echo '                    <h2>'. $row['title'] . "</h1>\n";
+        echo '                    <h2>'. $row['title'] . "</h2>\n";
         echo '                    <hr/>' . "\n";
         echo '                    <div id="box"" >' .  $row['content'] . '</div><br/>' . "\n";
         echo '                </div>' . "\n";
