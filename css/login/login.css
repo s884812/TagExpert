@@ -1,0 +1,12 @@
+form {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#account {
+    height: 18px;
+}
+
+#password {
+    height: 18px;
+}
