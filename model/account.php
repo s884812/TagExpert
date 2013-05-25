@@ -38,5 +38,9 @@ class Account {
         $pwd = $pwd['password'];
         return $pwd;
     }
+
+    public function register($account, $email, $password, $fname, $lname, $sex)
+    {
+    }
 }
 ?>

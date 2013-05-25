@@ -4,13 +4,13 @@ use TagExpert;
 
 create table user_profile (
     user_id int unsigned not null auto_increment primary key,
-    fname varchar(20) ,
-    lname varchar(20) ,
-	user varchar(50) not null,
-	sex varchar(20),
-	birth date,
+	account varchar(50) not null,
     email varchar(50) not null,
     password varchar(256) not null,
+    fname varchar(20) ,
+    lname varchar(20) ,
+	sex varchar(20),
+	birth date,
     user_group varchar(20) not null
 );
 

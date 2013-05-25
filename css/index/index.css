@@ -7,6 +7,10 @@ body {
     top: 30%;
 }
 
+#btnRegister {
+    width: 100%;
+}
+
 #posting {
     width: 100%;
 }

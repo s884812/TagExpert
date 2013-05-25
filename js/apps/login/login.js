@@ -1,4 +1,4 @@
-var login = new function() {
+var login = function() {
     this.initialize = function() {
         $('#account').blur(GetEncryptPwd);
         $('#password').on("input", CheckPwd);
@@ -23,4 +23,4 @@ var login = new function() {
     }
 }
 
-define(['login'], login); 
+define(['login'], new login()); 
