@@ -63,38 +63,40 @@
             <form method="post" action="index.php?act=register" class="form-horizontal">
                 <div class="control-group">
                     <label class="control-label" for="account"> 帳號 </label>
-                    <div class="controls"><input type="text" name="account" placeholder="Account"/></div>
+                    <div class="controls"><input type="text" name="account" id="account" placeholder="Account"/></div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="email"> 信箱 </label> 
-                    <div class="controls"><input type="text" name="email" placeholder="E-mail"/></div>
+                    <div class="controls"><input type="text" name="email" id="email" placeholder="E-mail"/></div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="email"> 密碼 </label>
-                    <div class="controls"><input type="text" name="password" placeholder="Password" /></div>
+                    <div class="controls"><input type="text" name="password" id="password" placeholder="Password" /></div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="lname"> 姓氏 </label> 
-                    <div class="controls"><input type="text" name="lname" placeholder="Last Name" /></div>
+                    <div class="controls"><input type="text" name="lname" id="laname" placeholder="Last Name" /></div>
                 </div>
                 <div class="control-group">
                             <label class="control-label" for="fname"> 名字 </label> 
-                            <div class="controls"><input type="text" name="fname" placeholder="First Name" /></div>
+                            <div class="controls"><input type="text" name="fname" id="fname" placeholder="First Name" /></div>
                 </div>
                <div>
                     <label class="control-label" for="sex"> 性別 </label> 
                     <div class="controls">
-                        <div class="btn-group" name="sex"> 
+                        <input type="hidden" id = "sex" name="sex" value=""/>
+                            <div class="btn-group alignment" data-toggle="buttons-radio" name="sex"> 
                             <input type="button" class="btn btn-primary" value="男生" />
                             <input type="button" class="btn btn-danger" value="女生" />
                         </div>
                     </div>
                </div>
             </form>
+            <p id="registerMsg"></p>
         </div>
         <div class="modal-footer">
-            <input type="submit" class="btn-large btn-success" data-dismiss="modal" aria-hiden="true" value="確定送出" />
-            <input type="button" class="btn btn-danger" data-dismiss="modal" aria-hiden="true" value="取消" />
+            <input type="submit" class="btn-large btn-success" id="btnSubmitReg" value="確定送出" />
+            <input type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true" value="取消" />
         </div>
     </div>
 

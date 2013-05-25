@@ -41,6 +41,10 @@ class Account {
 
     public function register($account, $email, $password, $fname, $lname, $sex)
     {
+        $this->db->query('insert into user_profile(user_id, account, email, password, fname, lname, sex, birth, user_group) value (null, "' .
+                         $account . '", "' . $email  . '", "md5("' .  $password . '"), "' . $fname . '", "' . $lname . '", "' . $sex . 
+                         '", null, "normal")';
+                            
     }
 }
 ?>

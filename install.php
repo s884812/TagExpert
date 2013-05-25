@@ -3,7 +3,7 @@
 <html>
     <style>@import url(css/bootstrap/bootstrap.css) </style>
     <style type="text/css"> 
-        #login {
+        #msg {
             text-align: center;
             vertical-align: middle;
         }
@@ -15,7 +15,7 @@
     function PrintLogin($step, $msg)
     {
         echo '    <div class="row-fluid">' . "\n";
-        echo '        <div class="span4 offset3">' . "\n";
+        echo '        <div class="span4 offset4">' . "\n";
         echo '            <form class="form-horizontal" method="post" action="install.php?step=' . $step . '">' . "\n";
         echo '            <fieldset>' . "\n";
         echo '                <legend>' . $msg . '</legend>' . "\n";
@@ -30,8 +30,10 @@
         echo '                <div class="control-group">' . "\n";
         echo '                    <label class="control-label" for="host"> 主機 </label>' . "\n";
         echo '                    <div class="controls"><input type="text" name="host" placeholder="主機"></div>' . "\n";
-        echo '                    <label> host 為空則使用預設值 localhost </label>';
         echo '                </div>' . "\n";
+        echo '                <div class="control-group">';
+        echo '                    <label id="msg"> host 為空則使用預設值 localhost </label>';
+        echo '                </div>';
         echo '                <div class="control-group">';
         echo '                    <div class="controls"><input type="submit" class="btn btn-primary"></div>' . "\n";
         echo '                </div>';
