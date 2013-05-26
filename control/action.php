@@ -55,6 +55,14 @@ class Action extends Control
         }
     }
 
+    protected function register()
+    {
+        if(isset($_POST)) {
+            $acct = new Account();
+            $acct->register($_POST['account'], $_POST['email'], $_POST['password'], $_POST['fname'], $_POST['lname'], $_POST['sex']);
+        }
+    }
+
     protected function logout()
     {
         $acct = new Account();

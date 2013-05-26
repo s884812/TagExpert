@@ -9,7 +9,7 @@ class Account {
     public function login($account, $password)
     {
         $result = $this->db->query('select * from user_profile where email = "' . 
-                                    $account . '" and password = md5("' . $password . '")' );
+                                    $account . '" or account = "' . $account . '" and password = md5("' . $password . '")' );
         $result = $this->db->fetch_array($result);
         if ($result) {
             $user = array_pop($result);
@@ -42,8 +42,8 @@ class Account {
     public function register($account, $email, $password, $fname, $lname, $sex)
     {
         $this->db->query('insert into user_profile(user_id, account, email, password, fname, lname, sex, birth, user_group) value (null, "' .
-                         $account . '", "' . $email  . '", "md5("' .  $password . '"), "' . $fname . '", "' . $lname . '", "' . $sex . 
-                         '", null, "normal")';
+                         $account . '", "' . $email  . '", md5("' .  $password . '"), "' . $fname . '", "' . $lname . '", "' . $sex . 
+                         '", null, "normal")');
                             
     }
 }

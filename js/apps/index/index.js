@@ -17,18 +17,31 @@ var index = function() {
             $.ajax({
                 type: 'POST',
                 url: 'index.php?act=register',
+                data: {
+                    account: $('#account').val(),
+                    email: $('#email').val(),
+                    password: $('#password').val(),
+                    fname: $('#fname').val(),
+                    lname: $('#lname').val(),
+                    sex: $('#sex').val()
+                },
                 success: function() {
-                     console.log('success');
+                    $('#register').modal({
+                        show: false
+                    });
                 }
                  
             });
-            $('#register').modal({
-                show: false
-            });
+
+
         } else {
             $('#registerMsg').text('有欄沒有填唷');
         }
     };
+
+    var checkAcctReuse = function() {
+        
+    }
 
     var chooseSex = function() {
         if ($(this).val() == "男生")

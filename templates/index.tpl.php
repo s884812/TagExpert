@@ -60,28 +60,28 @@
             <h3> 會員註冊 </h3>
         </div>        
         <div class="modal-body">
-            <form method="post" action="index.php?act=register" class="form-horizontal">
+            <form method="post" action="index.php?act=register" class="form-horizontal" id="register-form">
                 <div class="control-group">
                     <label class="control-label" for="account"> 帳號 </label>
                     <div class="controls"><input type="text" name="account" id="account" placeholder="Account"/></div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="email"> 信箱 </label> 
-                    <div class="controls"><input type="text" name="email" id="email" placeholder="E-mail"/></div>
+                    <div class="controls"><input type="email" name="email" id="email" placeholder="E-mail"/></div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="email"> 密碼 </label>
-                    <div class="controls"><input type="text" name="password" id="password" placeholder="Password" /></div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="lname"> 姓氏 </label> 
-                    <div class="controls"><input type="text" name="lname" id="laname" placeholder="Last Name" /></div>
+                    <div class="controls"><input type="password" name="password" id="password" placeholder="Password" /></div>
                 </div>
                 <div class="control-group">
                             <label class="control-label" for="fname"> 名字 </label> 
                             <div class="controls"><input type="text" name="fname" id="fname" placeholder="First Name" /></div>
                 </div>
-               <div>
+                <div class="control-group">
+                    <label class="control-label" for="lname"> 姓氏 </label> 
+                    <div class="controls"><input type="text" name="lname" id="lname" placeholder="Last Name" /></div>
+                </div>
+                <div>
                     <label class="control-label" for="sex"> 性別 </label> 
                     <div class="controls">
                         <input type="hidden" id = "sex" name="sex" value=""/>
@@ -95,7 +95,7 @@
             <p id="registerMsg"></p>
         </div>
         <div class="modal-footer">
-            <input type="submit" class="btn-large btn-success" id="btnSubmitReg" value="確定送出" />
+            <input type="submit" data-loading-text="傳送中.." class="btn-large btn-success" id="btnSubmitReg"  value="確定送出" />
             <input type="button" class="btn btn-danger" data-dismiss="modal" aria-hidden="true" value="取消" />
         </div>
     </div>
