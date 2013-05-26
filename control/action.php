@@ -57,7 +57,7 @@ class Action extends Control
 
     protected function register()
     {
-        if(isset($_POST)) {
+        if(isset($_POST['accout']) ) {
             $acct = new Account();
             $acct->register($_POST['account'], $_POST['email'], $_POST['password'], $_POST['fname'], $_POST['lname'], $_POST['sex']);
         }
@@ -84,5 +84,19 @@ class Action extends Control
         }
     }
 
+	protected function isReuse() 
+	{
+	     $output = new OutputJson();
+		 $acct = new Account();
+		 $isreuse['isreuse'] = $acct->isAcctReuse($_POST['account']);
+		 $output->render($isreuse);
+	
+    }  	
+		 
+		 
+	     
+	
+	
+	
 }
 ?>

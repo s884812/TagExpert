@@ -41,11 +41,14 @@ class Account {
 
     public function isAcctReuse($account)
     {
-        $result = $this->db->query('select user_id form user_profile where account = "' . $account . '" or email="' $account . '"');
-        $this->db->fetch_array($result);
+        $result = $this->db->query('select user_id from user_profile where account = "' . $account . '" or email=". $account . '"');
+        $result = $this->db->fetch_array($result);
+		
         if (count($result))
             return true;
         return false;
+		
+		
     }
 
     public function register($account, $email, $password, $fname, $lname, $sex)
@@ -53,6 +56,7 @@ class Account {
         $this->db->query('insert into user_profile(user_id, account, email, password, fname, lname, sex, birth, user_group) value (null, "' .
                          $account . '", "' . $email  . '", md5("' .  $password . '"), "' . $fname . '", "' . $lname . '", "' . $sex . 
                          '", null, "normal")');
+						 
                             
     }
 }
