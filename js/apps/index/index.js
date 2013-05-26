@@ -39,7 +39,7 @@ var index = function() {
         }
     };
 
-    var checkAcctReuse = function() {
+    var isAcctReuse = function() {
         
     }
 

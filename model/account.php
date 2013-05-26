@@ -33,10 +33,19 @@ class Account {
 
     public function getEncryptPwd($account)
     {
-        $pwd = $this->db->query('select password from user_profile where email="' . $account . '"');
+        $pwd = $this->db->query('select password from user_profile where email ="' . $account . '"');
         $pwd = array_pop($this->db->fetch_array($pwd));
         $pwd = $pwd['password'];
         return $pwd;
+    }
+
+    public function isAcctReuse($account)
+    {
+        $result = $this->db->query('select user_id form user_profile where account = "' . $account . '" or email="' $account . '"';
+        $this->db->fetch_array($result);
+        if (count($result))
+            return true;
+        return false;
     }
 
     public function register($account, $email, $password, $fname, $lname, $sex)
