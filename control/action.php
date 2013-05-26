@@ -86,11 +86,12 @@ class Action extends Control
 
 	protected function isReuse() 
 	{
-	     $output = new OutputJson();
 		 $acct = new Account();
-		 $isreuse['isreuse'] = $acct->isAcctReuse($_POST['account']);
-		 $output->render($isreuse);
-	
+	     $output = new OutputJson();
+         if (isset($_POST['account'])) {
+             $result['isreuse'] = $acct->isAcctReuse($_POST['account']);
+             $output->render($result);
+         }
     }  	
 		 
 		 

@@ -1,8 +1,11 @@
 var index = function() {
+    var accountReuse = true;
+    var emailReuse = true;
     this.initialize = function() {
         $('#btnRegister').bind('click', showRegister);
         $('#btnSubmitReg').bind('click', checkNotNul);
         $('#account').bind('blur', isAcctReuse);
+        $('#email').bind('blur', isEMailReuse);
         $('.alignment .btn').click(chooseSex);
     };
 
@@ -13,7 +16,7 @@ var index = function() {
     };
 
     var checkNotNul = function() {
-        if ($('#account').val() && $('#email').val() && $('#password').val() && $('#sex').val()) {
+        if ($('#account').val() && $('#email').val() && $('#password').val() && $('#sex').val() && !accountReuse && emailReuse) {
             var success = false;
             $.ajax({
                 type: 'POST',
@@ -34,14 +37,45 @@ var index = function() {
                  
             });
 
-
         } else {
-            $('#registerMsg').text('有欄沒有填唷');
+            $('#registerMsg').text('有欄位沒有填唷');
         }
     };
 
     var isAcctReuse = function() {
-        
+        if ($('#account').val() != '') {
+            $.ajax({
+                type: 'POST',
+                url: 'index.php?act=isReuse',
+                data: {
+                    account: $('#account').val()
+                },
+                success: function(response) {
+                    var result = JSON.parse(response);
+                    this.accountReuse = result.isreuse;
+                    if (this.accountReuse)
+                        $('#registerMsg').text('帳號名稱已經有人使用');
+                },
+            });
+        }
+    }
+
+    var isEMailReuse = function() {
+        if ($('#email').val() != '') {
+            $.ajax({
+                type: 'POST',
+                url: 'index.php?act=isReuse',
+                data: {
+                    account: $('#email').val()
+                },
+                success: function(response) {
+                    var result = JSON.parse(response);
+                    this.emailReuse = result.isreuse;
+                    if (this.emailReuse)
+                        $('#registerMsg').text('信箱已經有人使用');
+                },
+            });
+        }
     }
 
     var chooseSex = function() {
