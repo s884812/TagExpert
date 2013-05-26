@@ -73,12 +73,17 @@
 
     function CreateDatabase()
     {
+        $success = true;
         $link = Login($_COOKIE['root_host'], $_COOKIE['root_user'], $_COOKIE['root_password']);
         if ($link) {
             if (mysql_query('create database TagExpert'))
                 echo 'success to create database' . "<br />\n";
+            else
+                $success = false;
             if (mysql_select_db('TagExpert'))
                 echo 'success to use TagExpert';
+            else
+                $success = false;
             if (mysql_query('
                 create table user_profile (
                     user_id int unsigned not null auto_increment primary key,
@@ -92,6 +97,8 @@
                     user_group varchar(20) not null
                 )'))
               echo 'success to create user_profile' . "<br />\n";
+            else
+                $success = false;
 
             if (mysql_query('
                     create table tag_profile (
@@ -99,6 +106,8 @@
                         tag_name varchar(20) not null
                     )'))
                  echo 'success to create tag_profile' . "<br />\n";
+            else
+                $success = false;
 
             if (mysql_query('
                     create table user_tag_score (
@@ -109,6 +118,8 @@
                         score int not null
                     )'))
                  echo 'success to create user_tag_score' . "<br />\n";
+            else
+                $success = false;
 
             if (mysql_query('
                         create table posting_profile (
@@ -124,6 +135,8 @@
                             foreign key(parent_posting_id) references posting_profile(posting_id)
                         )'))
                  echo 'success to create posting_profile' . "<br />\n";
+            else
+                $success = false;
 
             if (mysql_query('
                         create table posting_refer_tag (
@@ -133,6 +146,8 @@
                             foreign key(tag_id) references tag_profile(tag_id)
                         )'))
                   echo 'success to create posting_refer_tag' . "<br />\n";
+            else
+                $success = false;
 
             if (mysql_query('
                         create table user_description (
@@ -142,6 +157,8 @@
                             foreign key(tag_id) references tag_profile(tag_id)
                         )'))
                   echo 'suess to create user_description' . "<br />\n";
+            else
+                $success = false;
 
             $user = $_POST['user'];
             $password = $_POST['password'];
@@ -149,10 +166,19 @@
             echo 'create user "' . $user . '"@"' . $host . '" identified by "' . $password . '"';
             if (mysql_query('create user "' . $user . '"@"' . $host . '" identified by "' . $password . '"'))
                 echo 'succes to create user';
+            else
+                $success = false;
 
             if (mysql_query('grant all on TagExpert.* to "' . $user . '"@"' . $host  . '"'))
                 echo 'success to grant';
+            else
+                $success = false;
+
+        } else {
+            $success = false;
         }
+
+        return $success;
     }
 
     $step = isset($_GET['step']) ? $_GET['step'] : 0;
@@ -164,13 +190,18 @@
     case 1:
         if (LoginRoot())
             header('Refresh:1; url=install.php?step=2');
+        else
+            header('Refresh:1; url=install.php?step=1');
         break;
     case 2:
         $msg = '請為 TagExpert 新增一個帳號';
         GetUser(3, $msg);
         break;
     case 3:
-        CreateDatabase();
+        if(CreateDatabase())
+            header('Refresh:1; url=index.php');
+        else
+            header('Refresh:1; url=install.php?step=2');
     }
 ?>
 </body>

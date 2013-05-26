@@ -29,7 +29,8 @@ var index = function() {
                     lname: $('#lname').val(),
                     sex: $('#sex').val()
                 },
-                success: function() {
+                success: function(res) {
+                    console.log(res);
                     $('#registerMsg').text('註冊成功');
                     $('#register').modal('hide');
                 }

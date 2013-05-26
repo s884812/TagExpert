@@ -57,7 +57,7 @@ class Action extends Control
 
     protected function register()
     {
-        if(isset($_POST['accout']) ) {
+        if(isset($_POST['account']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['sex'])) {
             $acct = new Account();
             $acct->register($_POST['account'], $_POST['email'], $_POST['password'], $_POST['fname'], $_POST['lname'], $_POST['sex']);
         }

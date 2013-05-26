@@ -14,8 +14,6 @@ require([
     'bootstrap'
     ],
     function(index) {
-        console.log(index);
-        console.log($);
         index.initialize();
     }
 );
