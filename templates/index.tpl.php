@@ -3,7 +3,7 @@
 <head>
     <script data-main="js/apps/index/main" src="js/lib/require.js"></script>
     <style type="text/css"> @import url(css/bootstrap/bootstrap.css); </style>
-    <style type="text/css"> @import url(css/index/index.css); </style>-
+    <style type="text/css"> @import url(css/index/index.css); </style>
 </head>
 <body>
     <div class="navbar">
@@ -88,7 +88,7 @@
                             <div class="btn-group alignment" data-toggle="buttons-radio" name="sex"> 
                             <input type="button" class="btn btn-primary" value="男生" />
                             <input type="button" class="btn btn-danger" value="女生" />
-                        </div>
+                            </div>
                     </div>
                </div>
             </form>

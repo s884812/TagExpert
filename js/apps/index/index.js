@@ -16,7 +16,7 @@ var index = function() {
     };
 
     var checkNotNul = function() {
-        if ($('#account').val() && $('#email').val() && $('#password').val() && $('#sex').val() && !accountReuse && emailReuse) {
+        if ($('#account').val() && $('#email').val() && $('#password').val() && $('#sex').val() && !this.accountReuse && !this.emailReuse) {
             var success = false;
             $.ajax({
                 type: 'POST',
@@ -30,11 +30,9 @@ var index = function() {
                     sex: $('#sex').val()
                 },
                 success: function() {
-                    $('#register').modal({
-                        show: false
-                    });
+                    $('#registerMsg').text('註冊成功');
+                    $('#register').modal('hide');
                 }
-                 
             });
 
         } else {
