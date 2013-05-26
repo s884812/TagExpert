@@ -41,7 +41,7 @@ class Account {
 
     public function isAcctReuse($account)
     {
-        $result = $this->db->query('select user_id form user_profile where account = "' . $account . '" or email="' $account . '"');
+        $result = $this->db->query('select user_id from user_profile where account= ' . $account . '" or email="' . $account . '"');
         $this->db->fetch_array($result);
         if (count($result))
             return true;

@@ -2,6 +2,7 @@ var index = function() {
     this.initialize = function() {
         $('#btnRegister').bind('click', showRegister);
         $('#btnSubmitReg').bind('click', checkNotNul);
+        $('#account').bind('blur', isAcctReuse);
         $('.alignment .btn').click(chooseSex);
     };
 
