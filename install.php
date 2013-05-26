@@ -29,11 +29,8 @@
         echo '                </div>' . "\n";
         echo '                <div class="control-group">' . "\n";
         echo '                    <label class="control-label" for="host"> 主機 </label>' . "\n";
-        echo '                    <div class="controls"><input type="text" name="host" placeholder="主機"></div>' . "\n";
+        echo '                    <div class="controls"><input type="text" name="host" placeholder="host 為空則預設為 localhost"></div>' . "\n";
         echo '                </div>' . "\n";
-        echo '                <div class="control-group">';
-        echo '                    <label id="msg"> host 為空則使用預設值 localhost </label>';
-        echo '                </div>';
         echo '                <div class="control-group">';
         echo '                    <div class="controls"><input type="submit" class="btn btn-primary"></div>' . "\n";
         echo '                </div>';

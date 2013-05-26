@@ -43,7 +43,7 @@ class Account {
     {
         $result = $this->db->query('select user_id from user_profile where account = "' . $account . '" or email=". $account . '"');
         $result = $this->db->fetch_array($result);
-		
+
         if (count($result))
             return true;
         return false;

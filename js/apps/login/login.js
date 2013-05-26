@@ -8,7 +8,7 @@ var login = function() {
     var acct;
     var GetEncryptPwd = function() {
         var url = 'index.php?act=getEncryptPwd&account=' + $('#account').val();
-            xhr.open('GET', url, false);
+            xhr.open('GET', url);
             xhr.send();
             acct = JSON.parse(xhr.responseText);
     }
