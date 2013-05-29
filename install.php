@@ -16,7 +16,7 @@
     {
         echo '    <div class="row-fluid">' . "\n";
         echo '        <div class="span4 offset4">' . "\n";
-        echo '            <form class="form-horizontal" method="post" action="install.php?step=' . $step . '">' . "\n";
+        echo '            <form class="well form-horizontal" method="post" action="install.php?step=' . $step . '">' . "\n";
         echo '            <fieldset>' . "\n";
         echo '                <legend>' . $msg . '</legend>' . "\n";
         echo '                    <div class="control-group">' . "\n";

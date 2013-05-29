@@ -60,7 +60,7 @@
             <h3> 會員註冊 </h3>
         </div>        
         <div class="modal-body">
-            <form method="post" action="index.php?act=register" class="form-horizontal" id="register-form">
+            <form method="post" action="index.php?act=register" class="well form-horizontal" id="register-form">
                 <div class="control-group">
                     <label class="control-label" for="account"> 帳號 </label>
                     <div class="controls"><input type="text" name="account" id="account" placeholder="Account"/></div>

@@ -8,7 +8,7 @@
 <body>
     <div class="row-fluid">
         <div class="span4 offset4">
-            <form class="form-horizontal" method="post" action="index.php?act=login">
+            <form class="well form-horizontal" method="post" action="index.php?act=login">
                 <fieldset>
                     <legend> 請先登入 </legend>
                         <div class="control-group">

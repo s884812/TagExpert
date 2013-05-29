@@ -1,7 +1,7 @@
 require.config({
     paths: {
-        'jquery': '/js/lib/jquery',
-        'bootstrap': '/js/lib/bootstrap'
+        'jquery': '/js/lib/jquery/jquery',
+        'bootstrap': '/js/lib/bootstrap/bootstrap'
     },
     shim: {
         'bootstrap': ['jquery']

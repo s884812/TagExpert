@@ -6,8 +6,8 @@
  */
 require.config({
     paths: {
-        'jquery': '/js/lib/jquery',
-        'jquery.md5': '/js/lib/jquery.md5'
+        'jquery': '/js/lib/jquery/jquery',
+        'jquery.md5': '/js/lib/jquery/jquery.md5'
     },
     shim: {
         'jquery.md5': ['jquery'] // 說明哪個不支援 requirejs 並且指名是依賴哪個套件
