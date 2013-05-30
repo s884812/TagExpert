@@ -9,8 +9,8 @@ class Topic
     
     public function getTopic()
     {
-        $query_str = 'select * from posting_profile order by hit limit 20';
-        $result = $this->db->query($query_str);
+        $sql = 'select * from posting_profile order by hit limit 20';
+        $result = $this->db->query($sql);
         $topic = $this->db->fetch_array($result);
         
         return $topic;
@@ -29,8 +29,8 @@ class Topic
     
     public function addTopic($user_id, $title, $content, $tag_array)
     {
-        $query_str = 'insert into posting_profile (posting_id, parent_posting_id, user_id, title, content, hit, post_date, last_modify_date)
-                                  value (null, null, "' . $user_id . '", "' . $title . '", "' . $content . '", 1, now(), now())';
+        $sql = "insert into posting_profile (posting_id, parent_posting_id, user_id, title, content, hit, post_date, last_modify_date)
+                                  value (null, null, '$user_id', '$title', '$content', 1, now(), now())";
         $this->db->query($query_str);
         $posting_id = $this->db->getLastID();
         while ($tagname = array_pop($tag_array)) {

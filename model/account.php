@@ -8,8 +8,8 @@ class Account {
 
     public function login($account, $password)
     {
-        $result = $this->db->query('select * from user_profile where email = "' . 
-                                    $account . '" or account = "' . $account . '" and password = md5("' . $password . '")' );
+        $sql = "select *from user_profile where email='$account' or account='$account' and password='md5($password)')";
+        $result = $this->db->query($sql);
         $result = $this->db->fetch_array($result);
         if ($result) {
             $user = array_pop($result);
@@ -33,7 +33,8 @@ class Account {
 
     public function getEncryptPwd($account)
     {
-        $pwd = $this->db->query('select password from user_profile where email ="' . $account . '"');
+        $sql = "select password from user_profile where email='$account')";
+        $pwd = $this->db->query($sql);
         $pwd = array_pop($this->db->fetch_array($pwd));
         $pwd = $pwd['password'];
         return $pwd;
@@ -41,7 +42,8 @@ class Account {
 
     public function isAcctReuse($account)
     {
-        $result = $this->db->query('select user_id from user_profile where account="' . $account . '" or email="' . $account . '"');
+        $sql = "select user_id from user_profile where account='$account' or email='$account'";
+        $result = $this->db->query($sql);
         $result = $this->db->fetch_array($result);
         if (count($result))
             return true;
@@ -52,9 +54,9 @@ class Account {
 
     public function register($account, $email, $password, $fname, $lname, $sex)
     {
-        $this->db->query('insert into user_profile(user_id, account, email, password, fname, lname, sex, birth, user_group) value (null, "' .
-                         $account . '", "' . $email  . '", md5("' .  $password . '"), "' . $fname . '", "' . $lname . '", "' . $sex . 
-                         '", null, "normal")');
+        $sql = "insert into user_profile(user_id, account, email, password, fname, lname, sex, birth, user_group)
+                value(null, '$account', '$email', md5('$password'), '$fname', '$lname', $sex, null, 'normal'";
+        $this->db->query($sql);
 						 
                             
     }

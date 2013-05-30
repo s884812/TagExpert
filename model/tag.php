@@ -22,20 +22,23 @@ class Tag {
 
     public function addTag($tagname)
     {
-        $this->db->query('insert into tag_profile (tag_id, tag_name) value (null, "' . $tagname . '")');
+        $sql = "insert into tag_profile (tag_id, tag_name) value (null, '$tagname')";
+        $this->db->query();
         return $this->db->getLastID();
     }
 
     public function queryTag($tagname)
     {
-        $tag_id = array_pop($this->db->fetch_array($this->db->query('select tag_id from tag_profile where tag_name = "' . $tagname . '"')));
+        $sql = "select tag_id from tag_profile where tag_name = '$tagname'";
+        $tag_id = array_pop($this->db->fetch_array($this->db->query($sql)));
         return $tag_id;
     }
 
     public function addPostingTag($posting_id, $tag_id)
     {
-        $this->db->query('insert into posting_refer_tag(posting_id, tag_id) value (' . sprintf("%d", $posting_id) . ', ' .
-                         sprintf("%d", $tag_id));
+        $sql = 'insert into posting_refer_tag(posting_id, tag_id) value (' . sprintf("%d", $posting_id) . ', ' .
+                         sprintf("%d", $tag_id;
+        $this->db->query($sql));
     }
 
 }
