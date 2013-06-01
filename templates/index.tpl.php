@@ -28,7 +28,7 @@
         echo '                   <td><div>' .  $row['content'] . '</div></td>' . "\n";
         echo '               </tr>' . "\n";
         echo '               <tr>' ."\n";
-        echo '                   <td>' . "<a href='#'> read more </a></td>" . "\n";
+        echo '                   <td>' . "<a href='index.php?act=show&p={$row['posting_id']}'> read more </a></td>" . "\n";
         echo '               </tr>' . "\n";
         echo '           </table>' . "\n";
     }
