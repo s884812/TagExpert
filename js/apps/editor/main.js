@@ -1,18 +1,17 @@
 require.config({
     paths: {
-        "lib" : "../../lib"
+        "jquery": "/js/lib/jquery/jquery",
+        "showdown": "/js/lib/showdown/showdown"
     }, 
     shim: {
-        'showndown': {
-            exports: 'showndown'
-        }
+        'showdown': ['jquery']
    }
 });
 
 require([
     'editor',
-    'lib/showdown',
-    'lib/jquery'
+    'showdown',
+    'jquery'
 ], function() {
     console.log(editor);
     editor.initialize();

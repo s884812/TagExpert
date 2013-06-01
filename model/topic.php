@@ -41,6 +41,8 @@ class Topic
     }
 
     public function showTopic($posting_id)
+    {
+    }
 
     public function __destruct()
     {

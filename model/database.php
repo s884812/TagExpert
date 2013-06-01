@@ -8,7 +8,7 @@ class Database
         $this->link = mysql_connect($config['db']['host'], 
                                     $config['db']['user'],
                                     $config['db']['password']);
-        //$this->query('set names utf8');
+        $this->query('set names utf8');
         mysql_select_db($config['db']['dbName'], $this->link);
         
     }

@@ -1,11 +1,7 @@
 <html>
 <head>
     <script data-main="js/apps/editor/main" src="js/lib/require.js"> </script>
-<<<<<<< HEAD
-    <style type="text/css"> @import url(css/bootstrap/bootstrap.css) </style>
-=======
 	<style type="text/css"> @import url(css/bootstrap/bootstrap.css) </style>
->>>>>>> 62b982068ed3b8765c6d58888847322b5a0d1571
     <style type="text/css"> @import url(css/editor/editor.css) </style>
 </head>
 <body>
