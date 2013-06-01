@@ -1,18 +1,36 @@
-#input.title {
+#title {
     position: relative;
-    height: 10%;
-    width: 90%;
+	left: 13%;
+    height: 5%;
+    width: 45%;
 }
 
-#textarea.content {
+#content {
     position: relative;
-    left: 30%;
-    height: 50%;
-    overflow: scroll;
+    left: 5%;
+    height: 80%;
+	width: 100%;
+	resize: none;
+    //overflow: scroll;
 }
 
 #demo{
-    border:1px solid;
-	width: 50%;
-	height: 10%;
+    box-shadow: 2px 2px 2px rgba(20%,20%,40%,0.6),4px 4px 6px rgba(20%,20%,40%,0.4),6px 6px 12px rgba(20%,20%,40%,0.4);
+	width: 100%;
+	height: 80%;
 }
+
+#tag{
+   position: relative;
+   left:5%;
+   height:5%;
+   }
+   
+#button{
+   position: relative;
+   left:100%;
+   
+   
+  }
+     
+
