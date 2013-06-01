@@ -10,3 +10,9 @@
     height: 50%;
     overflow: scroll;
 }
+
+#demo{
+    border:1px solid;
+	width: 50%;
+	height: 10%;
+}
