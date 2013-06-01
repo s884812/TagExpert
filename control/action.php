@@ -32,8 +32,10 @@ class Action extends Control
     {
         $topic = new Topic();
         $tag_array = Tag::convertToTagArray($_POST['tag']);
+        $parrent_id = isset($_GET['parrent']) ? $_GET['parrent'] : null;
+        $isComment = isset($_GET['isComment']) ? $_GET['isComment'] : false;
         if (isset($_SESSION['user_id'])) {
-            if ($topic->addTopic($_SESSION['user_id'], $_POST['title'], $_POST['content'], $tag_array))
+            if ($topic->addTopic($_SESSION['user_id'], $parrent_id, $_POST['title'], $_POST['content'], $tag_array, $isComment))
                 $this->redirectTo('index.php');
             else
                 $this->redirectTo('index.php?act=edit');
