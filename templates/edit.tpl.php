@@ -18,19 +18,20 @@
                         </div>
 		            </div>
 		            <div class="span5">
-                        <div id="demo" class="demo">
+                        <div id="demo" class=" demo table table-bordered">
 		     
                         </div>
 		            </div>
 		        </div>
 		    </div>
 		 </div>
-         <div class=tag>
-             <input type="text" name="tag" /> <br/>
-         </div>
-         <div class="submit">
-             <input type="submit" /> <br/>
-         </div>
+         <div class="row-fluid">
+		    <div class="span5 offset1">
+             <input type="text" id="tag" placeholder="請輸入標籤"/> <br/>
+        
+             <input type="submit" class="btn btn-large btn-primary" id="button" /> <br/>
+        </div>
+		 </div>
 		 </div>
     </form>
 </body>
