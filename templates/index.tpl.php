@@ -27,6 +27,9 @@
         echo '               <tr>' ."\n";
         echo '                   <td><div>' .  $row['content'] . '</div></td>' . "\n";
         echo '               </tr>' . "\n";
+        echo '               <tr>' ."\n";
+        echo '                   <td>' . "<a href='#'> read more </a></td>" . "\n";
+        echo '               </tr>' . "\n";
         echo '           </table>' . "\n";
     }
 ?>

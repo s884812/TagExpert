@@ -27,10 +27,10 @@ class Topic
         $tag->addPostingTag($posting_id, $tag_id);
     }
     
-    public function addTopic($parrent_id, $user_id, $title, $content, $tag_array, $isComment)
+    public function addTopic($parent_id, $user_id, $title, $content, $tag_array, $isComment)
     {
         $sql = "insert into posting_profile (posting_id, parent_posting_id, user_id, title, content, hit, post_date, last_modify_date)
-                            value (null, null, '$user_id', '$title', '$content', 1, now(), now())";
+                            value (null, $parent_id, $user_id, '$title', '$content', 1, now(), now())";
         $this->db->query($sql);
         $posting_id = $this->db->getLastID();
         while ($tagname = array_pop($tag_array)) {
@@ -39,6 +39,8 @@ class Topic
 
         return true;
     }
+
+    public function showTopic($posting_id)
 
     public function __destruct()
     {

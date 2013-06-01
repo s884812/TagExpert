@@ -23,13 +23,13 @@ class Tag {
     public function addTag($tagname)
     {
         $sql = "insert into tag_profile (tag_id, tag_name) value (null, '$tagname')";
-        $this->db->query();
+        $this->db->query($sql);
         return $this->db->getLastID();
     }
 
     public function queryTag($tagname)
     {
-        $sql = "select tag_id from tag_profile where tag_name = '$tagname'";
+        $sql = "select tag_id from tag_profile where tag_name='$tagname'";
         $tag_id = array_pop($this->db->fetch_array($this->db->query($sql)));
         return $tag_id;
     }
