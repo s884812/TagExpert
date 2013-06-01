@@ -37,8 +37,8 @@ class Tag {
     public function addPostingTag($posting_id, $tag_id)
     {
         $sql = 'insert into posting_refer_tag(posting_id, tag_id) value (' . sprintf("%d", $posting_id) . ', ' .
-                         sprintf("%d", $tag_id;
-        $this->db->query($sql));
+                         sprintf("%d", $tag_id);
+        $this->db->query($sql);
     }
 
 }
