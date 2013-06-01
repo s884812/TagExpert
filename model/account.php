@@ -8,7 +8,7 @@ class Account {
 
     public function login($account, $password)
     {
-        $sql = "select *from user_profile where email='$account' or account='$account' and password='md5($password)')";
+        $sql = "select * from user_profile where (email='$account' or account='$account') and password=md5('$password')";
         $result = $this->db->query($sql);
         $result = $this->db->fetch_array($result);
         if ($result) {
@@ -56,9 +56,8 @@ class Account {
     {
         $sql = "insert into user_profile(user_id, account, email, password, fname, lname, sex, birth, user_group)
                 value(null, '$account', '$email', md5('$password'), '$fname', '$lname', $sex, null, 'normal'";
+
         $this->db->query($sql);
-						 
-                            
     }
 }
 ?>
