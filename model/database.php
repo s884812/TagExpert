@@ -16,7 +16,11 @@ class Database
     public function query($query)
     {
         
-        return mysql_query($query);
+        $result = mysql_query($query);
+        if (!$result)
+            throw new Database_Exception(mysql_error());
+
+        return $result;
     }
 
     public function fetch_array($result)

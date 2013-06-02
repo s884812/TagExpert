@@ -13,7 +13,7 @@ class Action extends Control
     {
         $topic = new Topic();
         $output = new OutputHtml();
-        $output->setTplVar($topic->getTopic());
+        $output->setTplVar($topic->getTopics());
         $output->render('index.tpl.php');
     }
 
@@ -44,11 +44,16 @@ class Action extends Control
         }
     }
 
-    protected function show()
+    protected function view()
     {
          if (isset($_GET['p'])) {
+             $posting = array();
              $topic = new Topic();
-             $topic->showTopic($_GET['p']);
+             $posting = array_merge($posting, $topic->getTopic($_GET['p']));
+             $posting = array_merge($posting, $topic->getComment($_GET['p']));
+             $output = new OutputHtml();
+             $output->setTplVar($posting);
+             $output->render('view.tpl.php');
          }
     }
     

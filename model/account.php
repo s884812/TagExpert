@@ -57,7 +57,11 @@ class Account {
         $sql = "insert into user_profile(user_id, account, email, password, fname, lname, sex, birth, user_group)
                 value(null, '$account', '$email', md5('$password'), '$fname', '$lname', '$sex', null, 'normal'";
 
-        $this->db->query($sql);
+        try {
+            $this->db->query($sql);
+        } catch(Exception $e) {
+            echo $e->getMessege();
+        }
     }
 }
 ?>

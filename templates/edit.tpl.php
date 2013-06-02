@@ -5,7 +5,9 @@
     <style type="text/css"> @import url(css/editor/editor.css) </style>
 </head>
 <body>
-    <form method="post" action="/index.php?act=add">
+    <form method="post" action="/index.php?act=add<?php 
+                                                       if (isset($_GET['p'])) 
+                                                           echo "&parent={$_GET['p']}&isComment=true" ?>">
          <div class="span12 title">
              <input type="text" id="title" name="title" placeholder="請輸入標題"/><br/>
          </div>
