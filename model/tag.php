@@ -30,14 +30,17 @@ class Tag {
     public function queryTag($tagname)
     {
         $sql = "select tag_id from tag_profile where tag_name='$tagname'";
-        $tag_id = array_pop($this->db->fetch_array($this->db->query($sql)));
+        $result = $this->db->query($sql);
+        $result = $this->db->fetch_array($result);
+        echo 'fuck' . count($result) . "\n";
+        $tag_id = array_pop($this->db->fetch_array($result));
         return $tag_id;
     }
 
     public function addPostingTag($posting_id, $tag_id)
     {
         $sql = 'insert into posting_refer_tag(posting_id, tag_id) value (' . sprintf("%d", $posting_id) . ', ' .
-                         sprintf("%d", $tag_id);
+                         sprintf("%d", $tag_id) . ')';
         $this->db->query($sql);
     }
 

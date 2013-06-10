@@ -29,7 +29,7 @@
 		 </div>
          <div class="row-fluid">
 		    <div class="span5 offset1">
-             <input type="text" id="tag" placeholder="請輸入標籤"/> <br/>
+             <input type="text" id="tag" name="tag" placeholder="請輸入標籤"/> <br/>
         
              <input type="submit" class="btn btn-large btn-primary" id="button" /> <br/>
         </div>

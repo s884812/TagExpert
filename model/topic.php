@@ -58,7 +58,6 @@ class Topic
      {
          $sql = "insert into posting_profile (posting_id, parent_posting_id, user_id, title, content, hit, post_date, last_modify_date)
                              value (null, $parent_id, $user_id, '$title', '$content', 1, now(), now())";
-         echo $sql;
          $this->db->query($sql);
          $posting_id = $this->db->getLastID();
          while ($tagname = array_pop($tag_array)) {

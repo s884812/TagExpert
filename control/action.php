@@ -36,7 +36,7 @@ class Action extends Control
         $isComment = isset($_GET['isComment']) ? $_GET['isComment'] : false;
         if (isset($_SESSION['user_id'])) {
             if ($topic->addTopic($parent_id, $_SESSION['user_id'], $_POST['title'], $_POST['content'], $tag_array, $isComment))
-                $this->redirectTo('index.php');
+                echo '';//$this->redirectTo('index.php');
             else
                 $this->redirectTo('index.php?act=edit');
         } else {
