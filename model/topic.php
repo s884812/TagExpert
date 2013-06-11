@@ -10,8 +10,12 @@ class Topic
      public function getTopics()
      {
          $sql = 'select * from posting_profile order by hit limit 20';
-         $result = $this->db->query($sql);
-         $topics = $this->db->fetch_array($result);
+         try {
+             $result = $this->db->query($sql);
+             $topics = $this->db->fetch_array($result);
+         } catch (Exception $e) {
+             error_reporting($e->getMessage());
+         }
         
          return $topics;
      }
@@ -24,7 +28,7 @@ class Topic
              $result = $this->db->query($sql);
              $topic = $this->db->fetch_array($result);
          } catch (Exception $e) {
-             echo $e->getMessage();
+             error_reporting($e->getMessage());
          }
 
          return $topic;
@@ -37,7 +41,7 @@ class Topic
              $result = $this->db->query($sql);
              $comment = $this->db->fetch_array($result);
          } catch (Exception $e) {
-             echo $e->getMessage();
+             error_reporting($e->getMessage());
          }
 
          return $comment;
@@ -58,7 +62,12 @@ class Topic
      {
          $sql = "insert into posting_profile (posting_id, parent_posting_id, user_id, title, content, hit, post_date, last_modify_date)
                              value (null, $parent_id, $user_id, '$title', '$content', 1, now(), now())";
-         $this->db->query($sql);
+         try {
+             $this->db->query($sql);
+         } catch (Exception $e) {
+             error_reporting($e->getMessage());
+         }
+
          $posting_id = $this->db->getLastID();
          while ($tagname = array_pop($tag_array)) {
              $this->handleTag($posting_id, $tagname);
