@@ -19,19 +19,21 @@
     <div class="row-fluid">
         <div class="span6 offset2">
 <?php
-    foreach( $this->tplVar as $row ) {
-        echo '           <table id="topic" class="table table-bordered">' . "\n";
-        echo '               <tr>' . "\n";
-        echo '                   <td><h3>'. $row['title'] . "</h3></td>\n";
-        echo '               </tr>' ."\n";
-        echo '               <tr>' ."\n";
-        echo '                   <td><div>' .  $row['content'] . '</div></td>' . "\n";
-        echo '               </tr>' . "\n";
-        echo '               <tr>' ."\n";
-        echo '                   <td>' . "<a href='index.php?act=view&p={$row['posting_id']}'> read more </a></td>" . "\n";
-        echo '               </tr>' . "\n";
-        echo '           </table>' . "\n";
-    }
+        foreach ($this->tplVar as $row) {
+?>
+            <table id="topic" class="table table-bordered">
+                <tr>
+                    <td><h3><?php echo $row['title']; ?></h3></td>
+                </tr>
+                <tr>
+                    <td><div><?php echo $row['content']; ?></div></td>
+                </tr>
+                <tr>
+                    <td><a href='index.php?act=view&p=<?php echo $row['posting_id']; ?>'> read more </a></td>
+                </tr>
+            </table>
+<?php
+        }
 ?>
      
         </div >

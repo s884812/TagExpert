@@ -14,32 +14,36 @@
 <?php
     function PrintLogin($step, $msg)
     {
-        echo '    <div class="row-fluid">' . "\n";
-        echo '        <div class="span4 offset4">' . "\n";
-        echo '            <form class="well form-horizontal" method="post" action="install.php?step=' . $step . '">' . "\n";
-        echo '            <fieldset>' . "\n";
-        echo '                <legend>' . $msg . '</legend>' . "\n";
-        echo '                    <div class="control-group">' . "\n";
-        echo '                        <label class="control-label" for="user"> 帳號 </label> ' . "\n";
-        echo '                        <div class="controls"><input type="text" name="user" placeholder="帳號"/></div>' . "\n";
-        echo '                    </div>' . "\n";
-        echo '                <div class="control-group">';
-        echo '                    <label class="control-label" for="password"> 密碼 </label> ' . "\n";
-        echo '                    <div class="controls"><input type="password" name="password" placeholder="密碼"/></div>' . "\n";
-        echo '                </div>' . "\n";
-        echo '                <div class="control-group">' . "\n";
-        echo '                    <label class="control-label" for="host"> 主機 </label>' . "\n";
-        echo '                    <div class="controls"><input type="text" name="host" placeholder="host 為空則預設為 localhost"></div>' . "\n";
-        echo '                </div>' . "\n";
-        echo '                <div class="control-group">';
-        echo '                    <div class="controls"><input type="submit" class="btn btn-primary"></div>' . "\n";
-        echo '                </div>';
-        echo '            </fieldset>' . "\n";
-        echo '            </form>' . "\n";
-        echo '        </div>';
-        echo '    </div>';
+?>
+    <div class="row-fluid">
+        <div class="span4 offset4">
+            <form class="well form-horizontal" method="post" action="install.php?step='<?php echo $step; ?>">
+                <fieldset>
+                    <legend><?php echo $msg; ?></legend>
+                        <div class="control-group">
+                            <label class="control-label" for="user"> 帳號 </label> 
+                            <div class="controls"><input type="text" name="user" placeholder="帳號"/></div>
+                        </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password"> 密碼 </label>
+                        <div class="controls"><input type="password" name="password" placeholder="密碼"/></div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="host"> 主機 </label>
+                        <div class="controls"><input type="text" name="host" placeholder="host 為空則預設為 localhost"></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls"><input type="submit" class="btn btn-primary"></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+<?php
     }
+?>
 
+<?php
     function ReadyToLoginRoot($step, $msg) 
     {
         PrintLogin($step, $msg);
