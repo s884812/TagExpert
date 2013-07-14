@@ -18,7 +18,7 @@ class Database
         
         $result = mysql_query($query);
         if (!$result)
-            throw new Database_Exception("wrong sql: $query");
+            throw new Database_Exception("$query");
 
         return $result;
     }
@@ -38,9 +38,8 @@ class Database
         if ($result = $this->query('select last_insert_id()')) {
             $id = $this->fetch_array($result);
             $id = array_pop($id);
-            echo $id;
         } else {
-            echo "error";
+            throw new Database_Exception("wrong id: $id");
         }
         return $id;
     }

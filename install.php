@@ -17,7 +17,7 @@
 ?>
     <div class="row-fluid">
         <div class="span4 offset4">
-            <form class="well form-horizontal" method="post" action="install.php?step='<?php echo $step; ?>">
+            <form class="well form-horizontal" method="post" action="install.php?step=<?php echo $step; ?>">
                 <fieldset>
                     <legend><?php echo $msg; ?></legend>
                         <div class="control-group">
