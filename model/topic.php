@@ -2,9 +2,13 @@
 class Topic
 {
      private $db;
-     public function __construct() 
+     public function __construct($db = NULL) 
      {
-         $this->db = new Database();
+         if (isset($db)) {
+             $this->db = $db;
+         } else {
+             $this->db = new Database();
+         }
      }
     
      public function getTopics()
@@ -28,7 +32,7 @@ class Topic
              $result = $this->db->query($sql);
              $topic = $this->db->fetch_array($result);
          } catch (Exception $e) {
-             error_reporting($e->getMessage());
+             trigger_error($e->getMessage());
          }
 
          return $topic;
@@ -49,7 +53,7 @@ class Topic
 
      private function handleTag($posting_id, $tagname)
      {
-         $tag = new Tag();
+         $tag = new Tag($this->db);
          $tag_id = $tag->queryTag($tagname);
          if (!$tag_id) {
              $tag_id = $tag->addTag($tagname);
@@ -65,7 +69,7 @@ class Topic
          try {
              $this->db->query($sql);
          } catch (Exception $e) {
-             error_reporting($e->getMessage());
+             trigger_error($e->getMessage());
          }
 
          $posting_id = $this->db->getLastID();

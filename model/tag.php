@@ -1,9 +1,13 @@
 <?php
 class Tag {
     private $db;
-    public function __construct()
+    public function __construct($db = NULL)
     {
-        $this->db = new Database();
+        if (isset($db)) {
+            $this->db = $db;
+        } else {
+            $this->db = new Database();
+        }
     }
 
     public static function convertToTagArray($originStr)
@@ -31,9 +35,7 @@ class Tag {
     {
         $sql = "select tag_id from tag_profile where tag_name='$tagname'";
         $result = $this->db->query($sql);
-        $result = $this->db->fetch_array($result);
-        echo 'fuck' . count($result) . "\n";
-        $tag_id = array_pop($this->db->fetch_array($result));
+        $tag_id = $result->fetch();
         return $tag_id;
     }
 
@@ -41,7 +43,11 @@ class Tag {
     {
         $sql = 'insert into posting_refer_tag(posting_id, tag_id) value (' . sprintf("%d", $posting_id) . ', ' .
                          sprintf("%d", $tag_id) . ')';
-        $this->db->query($sql);
+        try {
+            $this->db->query($sql);
+        } catch(Database_Exception $e) {
+            trigger_error($e);
+        }
     }
 
 }

@@ -1,9 +1,13 @@
 <?php
 class Account {
     private $db;
-    public function __construct()
+    public function __construct($db = NULL)
     {
-        $this->db = new Database();
+        if (isset($db)) {
+           $this->db = $db;
+        } else {
+            $this->db = new Database();
+        }
     }
 
     public function login($account, $password)
