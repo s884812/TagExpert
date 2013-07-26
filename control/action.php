@@ -108,11 +108,12 @@ class Action extends Control
              $output->render($result);
          }
     }  	
+
+    protected function addScore()
+    {
+        $score = new Score();
+        $score->addTargetTagScore($_SESSION['user_id'], 2, $score->getPostingScore(1));
+    }
 		 
-		 
-	     
-	
-	
-	
 }
 ?>
